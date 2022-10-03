@@ -32,7 +32,7 @@ Resources:
         Automatically create snapshots from all Lightsail Virtual Private
         Servers and prune snapshots after a retention period.
       CodeUri: ./lambda
-      Runtime: python2.7
+      Runtime: python3.9
       Timeout: 60
       Handler: index.handler
       Environment:
