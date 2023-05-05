@@ -17,6 +17,9 @@ and the number of days for which snapshots should be retained. By default, the
 script will install the function into your default configured region and retain
 snapshots for 30 days.
 
+UPDATE: This repo contains another deploy script you can use with AWS cloudshell to execute this package.
+This script bin/deploy-cs has any reference to --profile $profile removed. Also, cloudformation template uses python 3.9 engine.
+
 ```console
 ## Install in US East (Ohio) and retain snapshots for 15 days
 REGION=us-east-2 DAYS=15 bin/deploy
@@ -29,6 +32,22 @@ REGION=eu-west-1 bin/deploy
 
 ## Install in Asia Pacific (Tokyo) and create snapshot every day at 7:00pm UTC, retain snapshots for 30 days
 REGION=ap-northeast-1 SCHEDULE="cron(0 19 * * ? *)" bin/deploy
+```
+
+##Specific Instructions for running in CloudShell:
+```console
+## deploy auto snapshots of lightsail instances via lambda
+## perform in aws cloudshell, non-root user, and specific region (sydney here)
+
+## install openssl
+sudo yum install -y openssl
+
+## clone the repo
+git clone https://github.com/coversine/lightsail-auto-snapshots.git
+cd lightsail-auto-snapshots
+
+## Install in Sydney and create snapshot every day at 2:00pm UTC, retain snapshots for 1 day only
+REGION=ap-southeast-2 DAYS=1 SCHEDULE="cron(0 14 * * ? *)" bin/deploy-cs
 ```
 
 ## License
