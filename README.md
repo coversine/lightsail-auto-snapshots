@@ -34,7 +34,7 @@ REGION=eu-west-1 bin/deploy
 REGION=ap-northeast-1 SCHEDULE="cron(0 19 * * ? *)" bin/deploy
 ```
 
-##Specific Instructions for running in CloudShell:
+## Specific Instructions for running in CloudShell:
 ```console
 ## deploy auto snapshots of lightsail instances via lambda
 ## perform in aws cloudshell, non-root user, and specific region (sydney here)
